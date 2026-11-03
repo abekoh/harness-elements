@@ -12,6 +12,7 @@ extends: null
 
 | 素材 | stance | 要約 |
 | --- | --- | --- |
+| [agent-skills/yomiyasu](agent-skills/yomiyasu.md) | trial | AI が書いた日本語を、意味を保ったまま読みやすく推敲する Agent Skill。付属の検査スクリプトで差分も確かめる |
 | [library/go/moq](library/go/moq.md) | recommended | Go のインタフェースから型安全なモック・スタブを生成し、呼び出し記録を Go の基本構文で検証する |
 | [library/go/testify](library/go/testify.md) | recommended | Go のテストのアサーションには testify の assert / require を使う |
 | [principles/cqrs-without-event-sourcing](principles/cqrs-without-event-sourcing.md) | adopt | 読み込みは Query Service が SQL で DTO を直接組み立て、書き込みだけドメインモデルを通す |

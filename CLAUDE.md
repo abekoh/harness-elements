@@ -9,7 +9,7 @@
 | raw sources | 依頼時のプロンプトで渡される資料(URL、Obsidian のページなど)。リポジトリには置かない |
 | wiki | 各レイヤーの素材 Markdown |
 | schema | この CLAUDE.md と `.claude/skills/` |
-| index.md | 各レイヤーの README.md(索引はスクリプトで生成) |
+| index.md | 各レイヤーの README.md(索引は main への push 後に CI が生成) |
 | log.md | 置かない。Git の履歴と素材の「履歴」節で追う |
 
 ## レイヤー
@@ -142,7 +142,7 @@ PR 番号は分かっていれば付けます。
 
 ## 更新のルール
 
-- 変更はすべて Pull Request を通します。main へ直接 push しません。
+- 変更はすべて Pull Request を通します。main へ直接 push しません。例外は CI による索引の自動更新だけです。
 - **新規素材の追加は、人間の依頼があったときだけ**行います(`/ingest`)。
 - 既存素材の更新は AI から始めてもかまいません(`/refresh`)。対象のメジャーバージョンが上がって内容に影響が出たときは、必ず更新します。
 - `/refresh` と `/lint` は新規素材を作りません。新しい素材が必要だと判断したら、GitHub Issue に提案を起票します。既存素材の移動や分割による再配置は、新規追加には当たりません。
@@ -160,7 +160,7 @@ uv のバージョンは `mise.toml` で管理します。
 
 ```sh
 uv run tools/hel.py check   # 検査(CI でも実行)
-uv run tools/hel.py index   # 各レイヤー README.md の索引を生成
+uv run tools/hel.py index   # 各レイヤー README.md の索引を生成(main への push 後に CI が実行)
 ```
 
 `check` は次を検査します。
@@ -169,6 +169,6 @@ uv run tools/hel.py index   # 各レイヤー README.md の索引を生成
 - H2 節の有無と順序(extend の素材は除く)
 - `depends_on` がそのレイヤーから解決できるか
 - 相対リンクの切れ
-- README.md の索引が最新か
+- README.md に索引の目印があるか
 
-素材を追加・変更したら `index` と `check` を実行してからコミットします。
+素材を追加・変更したら `check` を実行してからコミットします。索引は PR では更新しません。main に push されると、CI(`.github/workflows/index.yml`)が `index` を実行し、変更があれば main に直接コミットします。

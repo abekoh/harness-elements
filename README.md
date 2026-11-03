@@ -49,6 +49,7 @@ stance は、そのレイヤーとしての採否の判断です。ThoughtWorks 
 - `/lint`: 構造を検査し、ディレクトリの再配置を提案する
 
 ```sh
-uv run tools/hel.py index   # 索引を生成
 uv run tools/hel.py check   # 検査
 ```
+
+各レイヤーの README.md の索引は、main に push されたあとに CI が生成してコミットします。PR では更新しません。

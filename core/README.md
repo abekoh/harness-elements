@@ -15,6 +15,7 @@ extends: null
 | [agent-skills/grilling](agent-skills/grilling.md) | adopt | 実装や設計を始める前に、grilling スキルで AI に質問させ、決めることを洗い出して方針を固める |
 | [agent-skills/japanese-writing-norms](agent-skills/japanese-writing-norms.md) | adopt | AI に日本語の文書を書かせるときは、japanese-tech-writing と cognitive-rhythm-writing の 2 つのスキルを入れておく |
 | [agent-skills/yomiyasu](agent-skills/yomiyasu.md) | trial | AI が書いた日本語を、意味を保ったまま読みやすく推敲する Agent Skill。付属の検査スクリプトで差分も確かめる |
+| [database/postgresql](database/postgresql.md) | adopt | RDB で迷ったら PostgreSQL を使う。外部キーとインデックスは別に設計し、豊富なデータ型とインデックスを活かす |
 | [library/go/moq](library/go/moq.md) | recommended | Go のインタフェースから型安全なモック・スタブを生成し、呼び出し記録を Go の基本構文で検証する |
 | [library/go/testify](library/go/testify.md) | recommended | Go のテストのアサーションには testify の assert / require を使う |
 | [library/typescript/astro](library/typescript/astro.md) | adopt | ブログやドキュメントなど、コンテンツが中心の静的サイトは Astro で作り、frontmatter は Content Collections のスキーマで検証する |

@@ -29,6 +29,7 @@ extends: null
 | [testing/mock-unmanaged-deps-only](testing/mock-unmanaged-deps-only.md) | adopt | モックは外部 API やメール送信など、制御下にない依存への出力にだけ使う(古典学派) |
 | [testing/mock-vs-stub](testing/mock-vs-stub.md) | adopt | モックは外部への出力を、スタブは内部への入力を模倣する。スタブへの入力は検証しない |
 | [testing/observable-behavior](testing/observable-behavior.md) | adopt | テストでは実装の詳細ではなく、観測可能な振る舞いだけを検証する |
+| [testing/table-driven-tests](testing/table-driven-tests.md) | adopt | テーブル駆動テストは、テスト項目ごとの準備・実行・確認の差が小さいときだけ使う。差が大きければサブテストに Given-When-Then で書く |
 | [testing/test-level-roles](testing/test-level-roles.md) | adopt | ドメインロジックは単体テストで網羅し、統合テストは正常系の通しと単体テストで拾えない箇所を受け持つ |
 
 <!-- index:end -->

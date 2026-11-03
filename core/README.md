@@ -14,6 +14,7 @@ extends: null
 | --- | --- | --- |
 | [library/go/moq](library/go/moq.md) | recommended | Go のインタフェースから型安全なモック・スタブを生成し、呼び出し記録を Go の基本構文で検証する |
 | [library/go/testify](library/go/testify.md) | recommended | Go のテストのアサーションには testify の assert / require を使う |
+| [library/typescript/astro](library/typescript/astro.md) | adopt | ブログやドキュメントなど、コンテンツが中心の静的サイトは Astro で作り、frontmatter は Content Collections のスキーマで検証する |
 | [principles/cqrs-without-event-sourcing](principles/cqrs-without-event-sourcing.md) | adopt | 読み込みは Query Service が SQL で DTO を直接組み立て、書き込みだけドメインモデルを通す |
 | [principles/data-code-separation](principles/data-code-separation.md) | adopt | エンティティはデータとして扱い、振る舞いはデータを引数で受け取るステートレスな関数に書く |
 | [principles/hide-details-only-when-needed](principles/hide-details-only-when-needed.md) | adopt | DB や外部コンポーネントの詳細は、3 つの条件のどれかに当てはまるときだけインタフェースで隠す |

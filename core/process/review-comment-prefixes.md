@@ -1,5 +1,5 @@
 ---
-summary: コードレビューのコメントの先頭に [MUST] [IMO] [NITS] [Q] を付け、直す必要があるかどうかを明示する
+summary: コードレビューのコメントの先頭に [MUST] [IMO] [NITS] [Q] [FYI] を付け、直す必要があるかどうかを明示する
 stance: recommended
 tags: [process]
 depends_on: []
@@ -18,9 +18,9 @@ models: [claude-opus-5-5]
 
 ## 方針
 
-コメントの意図が一目で伝わり、やりとりの往復が減るため adopt とします。チームですでに別の取り決めがあるときは、そちらに従います。
+コメントの意図が一目で伝わり、やりとりの往復が減るため recommended とします。チームですでに別の取り決めがあるときは、そちらに従います。
 
-- レビューコメントの先頭に、次の 4 つのプレフィックスのどれかを付ける。
+- レビューコメントの先頭に、次の 5 つのプレフィックスのどれかを付ける。
 
   | プレフィックス | 意味 | レビュイーの対応 |
   | --- | --- | --- |
@@ -28,6 +28,7 @@ models: [claude-opus-5-5]
   | `[IMO]` | In my opinion。レビュアー個人の意見や提案 | 採るかどうかはレビュイーが決める |
   | `[NITS]` | nitpick。細かい指摘や軽微な修正 | 直してもよいし、直さなくてもよい |
   | `[Q]` | Question。分からない点の質問 | 答える。答えに応じて直すこともある |
+  | `[FYI]` | For your information。今回は対応しなくてよい参考情報 | 読むだけでよい。直す必要はない |
 
 - `[MUST]` は強い指摘なので、理由を添え、言葉遣いに気をつける。
 - AI エージェントがレビューするときも、同じプレフィックスを付けさせる。
@@ -42,7 +43,7 @@ models: [claude-opus-5-5]
 - **Google Engineering Practices**: `Nit:`(些細な指摘)、`Optional:` / `Consider:`(必須ではない提案)、`FYI:`(今回は対応不要な参考情報)の 3 つのラベルを勧めています。ラベルがないと、作成者はすべてのコメントを必須だと誤解しかねない、という理由です。
 - **Conventional Comments**: `<label> [decorations]: <subject>` の形式を定めています。ラベルは `praise`、`nitpick`、`suggestion`、`issue`、`todo`、`question`、`thought`、`chore`、`note` などで、マージを止めるかどうかを `(blocking)` / `(non-blocking)` のデコレーションで別に示します。
 
-本素材の 4 つのプレフィックスは、これらより種類が少なく、覚えることが少なくて済みます。種類と重さを分けて細かく示したいときは、Conventional Comments を使います。
+本素材のプレフィックスのうち `[MUST]` `[IMO]` `[NITS]` `[Q]` の 4 つは note の記事から取り、`[FYI]` は Google の `FYI:` にならって加えました。Conventional Comments より種類が少なく、覚えることが少なくて済みます。種類と重さを分けて細かく示したいときは、Conventional Comments を使います。
 
 ### プレフィックスの対応関係
 
@@ -52,6 +53,7 @@ models: [claude-opus-5-5]
 | `[IMO]` | `Optional:` / `Consider:` | `suggestion (non-blocking)`、`thought` |
 | `[NITS]` | `Nit:` | `nitpick` |
 | `[Q]` | (ラベルなし) | `question` |
+| `[FYI]` | `FYI:` | `note` |
 
 ### プレフィックスと組み合わせる習慣
 
@@ -71,7 +73,7 @@ models: [claude-opus-5-5]
 
 ### 失われるもの
 
-- 種類が 4 つしかないため、「良い点」や「参考情報」のようなコメントは書き分けられない。
+- 種類が 5 つしかないため、「良い点」のようなコメントは書き分けられない。
 - プレフィックスを知らない人には意味が伝わらず、最初に説明が要る。
 - 機械で集計するには、Conventional Comments ほど形式が厳密ではない。
 

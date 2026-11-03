@@ -1,6 +1,6 @@
 ---
 summary: コードレビューのコメントの先頭に [MUST] [IMO] [NITS] [Q] を付け、直す必要があるかどうかを明示する
-stance: adopt
+stance: recommended
 tags: [process]
 depends_on: []
 created: 2026-11-03

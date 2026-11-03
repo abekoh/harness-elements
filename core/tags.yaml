@@ -17,7 +17,6 @@ process: 開発プロセス
 
 # 横断的な観点
 architecture: アーキテクチャ・層の分け方
-ai-coding: AI のコーディング支援を前提にした規約
 
 # 言語
 go: Go

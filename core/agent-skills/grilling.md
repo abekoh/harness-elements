@@ -24,7 +24,7 @@ AI に実装や設計を頼むと、依頼に書かれていないことを AI �
 
 - 実装を始めるとき、設計から始めるときは、最初に grilling で方針を固めてから作業する。
 - 質問には推奨の回答が付くので、同意するなら「yes」で答え、違うときだけ理由を添えて答える。
-- Claude Code では、質問を AskUserQuestion ツールで尋ねさせる。grilling を呼ぶときに「質問は AskUserQuestion ツールで尋ねて」と添えるか、CLAUDE.md に書いておく。
+- Claude Code では質問を AskUserQuestion ツールで尋ねさせる。grilling を呼ぶときに「質問は AskUserQuestion ツールで尋ねて」と添えるか、CLAUDE.md に書いておく。
 - 決まった内容は作業を始める前に AI に要約させて確かめる。ADR や用語集に残したいときは grill-with-docs を使う。
 - 1 ファイルの修正のように、決めることがほとんどない作業では使わない。
 

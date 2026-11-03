@@ -1,0 +1,42 @@
+# harness-elements
+
+ハーネスエンジニアリングで使うハーネスの「素材」を集めたリポジトリです。言語、ライブラリ、ミドルウェア、設計原則、Lint、テスト指針、開発ツール、文書の書き方、AI エージェントの役割、開発プロセスなどを、1 要素につき 1 つの Markdown にまとめています。
+
+ハーネスそのものは、ここにある素材を読んで別のリポジトリに組み立てます。
+
+## レイヤー
+
+| レイヤー | 継承元 | 内容 |
+| --- | --- | --- |
+| [core](core/README.md) | なし | 筆者(abekoh)の基本的な考え |
+
+組織やチームで使うときは、このリポジトリを fork し、`core/` を継承するレイヤーを追加します。
+
+```
+core/        extends: null
+banana/      extends: core     Banana 社の方針
+banana-be/   extends: banana   Banana 社 Backend チームの方針
+```
+
+下位レイヤーに同じ ID の素材を置くと、上位レイヤーの素材を上書き(`inherit: replace`)または拡張(`inherit: extend`)できます。
+
+## 素材の形式
+
+各素材は、frontmatter(stance、タグ、依存など)と、次の節を持つ Markdown です。
+
+概要 / 方針 / 解説 / トレードオフ / 採用すべき？ / 参考情報 / 履歴
+
+stance は `required` / `adopt` / `trial` / `assess` / `hold` / `forbidden` の 6 値です。詳しい規則は [CLAUDE.md](CLAUDE.md) にあります。
+
+## 更新
+
+素材の本文は AI が書き、すべての変更を Pull Request でレビューします。Claude Code では次のスキルを使います。
+
+- `/ingest`: 新しい素材を追加する(人間が依頼する)
+- `/refresh`: バージョンアップなどに合わせて既存素材を更新する
+- `/lint`: 構造を検査し、ディレクトリの再配置を提案する
+
+```sh
+uv run tools/hel.py index   # 索引を生成
+uv run tools/hel.py check   # 検査
+```

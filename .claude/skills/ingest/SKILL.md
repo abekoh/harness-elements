@@ -50,7 +50,6 @@ description: harness-elements に素材を新規追加する、または人間�
 7. **検査する**
 
    ```sh
-   uv run tools/hel.py index
    uv run tools/hel.py check
    ```
 

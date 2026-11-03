@@ -6,7 +6,7 @@
 
 使い方:
     uv run tools/hel.py check   # 検査。問題があれば終了コード 1
-    uv run tools/hel.py index   # 各レイヤー README.md の索引を書き換える
+    uv run tools/hel.py index   # 各レイヤー README.md の索引を書き換える(main への push 後に CI が実行)
 """
 
 from __future__ import annotations
@@ -307,11 +307,9 @@ def cmd_check() -> int:
             check_links(path, errors)
         readme = layer.path / "README.md"
         text = readme.read_text(encoding="utf-8")
-        expected = replace_index(text, render_index(layer))
-        if expected is None:
+        # 索引の中身は main への push 後に CI が生成するので、ここでは目印の有無だけを見る
+        if replace_index(text, "") is None:
             errors.add(readme, f"索引の目印 {INDEX_START} / {INDEX_END} がありません")
-        elif expected != text:
-            errors.add(readme, "索引が古くなっています。uv run tools/hel.py index を実行してください")
     root_readme = ROOT / "README.md"
     if root_readme.is_file():
         check_links(root_readme, errors)

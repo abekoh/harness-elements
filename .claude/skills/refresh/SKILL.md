@@ -40,7 +40,6 @@ description: harness-elements の既存素材を最新の状況に合わせて�
 6. **検査する**
 
    ```sh
-   uv run tools/hel.py index
    uv run tools/hel.py check
    ```
 

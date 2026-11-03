@@ -1,0 +1,46 @@
+name: index
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: index
+  cancel-in-progress: false
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: jdx/mise-action@f5be966e4a917d54244728e6a5fdcd1d93a35e6c # v5.2.6
+      - run: uv run tools/hel.py index
+      - name: Commit and push
+        # main はルールセットで保護しているので、bypass を許可した deploy key で push する
+        env:
+          DEPLOY_KEY: ${{ secrets.INDEX_DEPLOY_KEY }}
+        run: |
+          if git diff --quiet; then
+            echo "索引に変更はありません"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*/README.md'
+          git commit -m "索引を更新"
+
+          key="$RUNNER_TEMP/deploy_key"
+          known="$RUNNER_TEMP/known_hosts"
+          printf '%s\n' "$DEPLOY_KEY" > "$key"
+          chmod 600 "$key"
+          curl -fsSL https://api.github.com/meta | jq -r '.ssh_keys[] | "github.com " + .' > "$known"
+          export GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes -o UserKnownHostsFile=$known -o StrictHostKeyChecking=yes"
+
+          remote="git@github.com:${GITHUB_REPOSITORY}.git"
+          git pull --rebase "$remote" main
+          git push "$remote" HEAD:main

@@ -36,7 +36,6 @@ description: harness-elements の素材全体の健全性を点検し、ディ�
 4. 検査します。
 
    ```sh
-   uv run tools/hel.py index
    uv run tools/hel.py check
    ```
 

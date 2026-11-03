@@ -1,0 +1,20 @@
+# core レイヤーで使えるタグ。キーがタグ名、値が説明。
+# 下位レイヤーは自分の tags.yaml でタグを追加できる。
+# 新しいタグは、そのタグを使う素材を追加する PR で一緒に登録する。
+
+# 分類
+language: プログラミング言語
+library: ライブラリ・フレームワーク
+middleware: ミドルウェア全般
+database: データベース
+principles: コーディング原則、実装パターン、設計原則
+lint: Linter・Formatter
+testing: テスト設計・テスト指針
+tools: 開発ツール
+writing: 人間向けの文書の書き方
+agents: AI エージェントの用意と役割設定
+process: 開発プロセス
+
+# 言語
+go: Go
+typescript: TypeScript

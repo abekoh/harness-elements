@@ -22,9 +22,10 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 
-STANCES = ["required", "adopt", "trial", "assess", "hold", "forbidden"]
+STANCES = ["required", "recommended", "adopt", "trial", "assess", "hold", "forbidden"]
 INHERITS = ["replace", "extend"]
 SECTIONS = ["概要", "方針", "解説", "トレードオフ", "採用すべき？", "参考情報", "履歴"]
+MAINTENANCE = "メンテナンス状況"
 
 REQUIRED_KEYS = {"summary", "stance", "tags", "created", "updated", "models"}
 OPTIONAL_KEYS = {"inherit", "depends_on", "version", "verified_at"}
@@ -250,6 +251,10 @@ def check_sections(m: Material, errors: Errors) -> None:
             m.path,
             f"H2 見出しは {' / '.join(SECTIONS)} の順にしてください(現在: {' / '.join(h2) or 'なし'})",
         )
+    if "version" in m.meta:
+        match = re.search(r"^## 解説$(.*?)(?=^## |\Z)", body, re.M | re.S)
+        if not match or not re.search(rf"^### {MAINTENANCE}$", match.group(1), re.M):
+            errors.add(m.path, f"version を書く素材は、解説節に H3「{MAINTENANCE}」を置いてください")
 
 
 def check_links(path: Path, errors: Errors) -> None:

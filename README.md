@@ -26,12 +26,13 @@ banana-be/   extends: banana   Banana 社 Backend チームの方針
 
 概要 / 方針 / 解説 / トレードオフ / 採用すべき？ / 参考情報 / 履歴
 
-stance は、そのレイヤーとしての採否の判断です。ThoughtWorks Technology Radar の ring に、組織の強制力を表す 2 値を加えた 6 値で、強い順に並べます。
+stance は、そのレイヤーとしての採否の判断です。ThoughtWorks Technology Radar の ring に、組織の強制力を表す 2 値と、adopt から分けた `recommended` を加えた 7 値で、強い順に並べます。
 
 | 値 | 意味 |
 | --- | --- |
 | `required` | 使用必須。組織やチームのルールとして必ず使う |
-| `adopt` | 採用。迷わず使ってよい |
+| `recommended` | 推奨。大半のプロジェクトで迷わず採用してよい |
+| `adopt` | 採用。トレードオフを考慮したうえで採用してよい |
 | `trial` | 試行。リスクを許容できるプロジェクトで試す |
 | `assess` | 評価。調べる価値はあるが、まだ使わない |
 | `hold` | 保留。新しくは採用しない。既存の利用は止めなくてよい |

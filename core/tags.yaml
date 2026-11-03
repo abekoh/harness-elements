@@ -17,6 +17,7 @@ process: 開発プロセス
 
 # 横断的な観点
 architecture: アーキテクチャ・層の分け方
+frontend: フロントエンド・Web サイト
 
 # 言語
 go: Go

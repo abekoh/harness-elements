@@ -1,0 +1,17 @@
+{
+  "extraKnownMarketplaces": {
+    "yomiyasu": {
+      "source": {
+        "source": "github",
+        "repo": "nanaism/yomiyasu"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "yomiyasu@yomiyasu": true
+  },
+  "skillOverrides": {
+    "japanese-tech-writing": "off",
+    "cognitive-rhythm-writing": "off"
+  }
+}

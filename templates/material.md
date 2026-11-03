@@ -32,7 +32,7 @@ models: [claude-opus-5-5]
 | 項目 | 内容 |
 | --- | --- |
 | メンテナ | 個人か組織か、主なメンテナ |
-| GitHub スター数 | 約 N |
+| GitHub スター数 | 確認日時点の値(丸めない) |
 | 最新コミット | YYYY-MM-DD |
 | 最新リリース | vX.Y.Z(YYYY-MM-DD) |
 | 確認日 | verified_at と同じ日 |

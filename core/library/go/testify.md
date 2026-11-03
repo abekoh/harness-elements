@@ -51,7 +51,7 @@ assert.Equal(t, "new name", repo.UpdateUserCalls()[0].User.Name)
 | 項目 | 内容 |
 | --- | --- |
 | メンテナ | stretchr(GitHub の Organization)。複数のメンテナが参加 |
-| GitHub スター数 | 約 26,000 |
+| GitHub スター数 | 26,240 |
 | 最新コミット | 2026-09-24 |
 | 最新リリース | v1.12.1(2026-08-19) |
 | 確認日 | 2026-11-03 |

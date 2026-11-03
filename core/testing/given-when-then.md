@@ -20,6 +20,7 @@ models: [claude-opus-5-5]
 - テストの本文を Given / When / Then の順に並べ、それぞれの始まりにコメントで区切りを書く。
 - When で実行するのは、テスト対象の呼び出し 1 回だけにする。
 - 検証は Then にまとめる。Given の中で検証の内容を書かない。
+- `t.Run()` などのサブテストで複数のテスト項目を書くときは、項目ごとに Given / When / Then を書く。表に入力値と期待値を並べるテーブル駆動テストは、項目ごとの差が入力値と期待値だけのときに限る([テーブル駆動テスト](table-driven-tests.md))。
 
 ```go
 func TestService_UpdateUserName(t *testing.T) {
@@ -51,7 +52,7 @@ Given-When-Then は BDD や Spock で使われる呼び方で、AAA と意味は
 
 ### 失われるもの
 
-- テーブル駆動テストのように、入力と期待値を表にまとめる書き方とは相性がよくない。
+- テーブル駆動テストのように、入力と期待値を表にまとめる書き方とは相性がよくない([テーブル駆動テスト](table-driven-tests.md))。
 
 ## 採用すべき？
 
@@ -69,7 +70,9 @@ Given-When-Then は BDD や Spock で使われる呼び方で、AAA と意味は
 - [Spock Framework](https://spockframework.org/)
 - 『単体テストの考え方/使い方』Vladimir Khorikov 著(第 3 章 AAA パターン)
 - [moqを使ったGoのテスト](https://zenn.dev/abekoh/articles/21acde07e1f555)
+- [Table-driven testing に縛られない Go のテストパターン](https://speakerdeck.com/abekoh/table-driven-testing-nifu-rarenai-gonotesutopatan)
 
 ## 履歴
 
+- 2026-11-03: サブテストでも項目ごとに Given / When / Then で書く方針を追加。
 - 2026-11-03: 新規作成。

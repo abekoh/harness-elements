@@ -23,6 +23,7 @@ extends: null
 | [principles/cqrs-without-event-sourcing](principles/cqrs-without-event-sourcing.md) | adopt | 読み込みは Query Service が SQL で DTO を直接組み立て、書き込みだけドメインモデルを通す |
 | [principles/data-code-separation](principles/data-code-separation.md) | adopt | エンティティはデータとして扱い、振る舞いはデータを引数で受け取るステートレスな関数に書く |
 | [principles/hide-details-only-when-needed](principles/hide-details-only-when-needed.md) | adopt | DB や外部コンポーネントの詳細は、3 つの条件のどれかに当てはまるときだけインタフェースで隠す |
+| [principles/home-repo-pattern](principles/home-repo-pattern.md) | adopt | 複数リポジトリにまたがる作業では、共有のスキル・AGENTS.md・ドキュメントを 1 つのホームリポに集め、エージェントはそこから起動して各リポジトリへはポインタで辿らせる |
 | [principles/schema-first](principles/schema-first.md) | adopt | システムの境界を流れるデータの形はスキーマで先に定義し、型やコードはそこから生成して二重管理しない |
 | [process/review-comment-prefixes](process/review-comment-prefixes.md) | recommended | コードレビューのコメントの先頭に [MUST] [IMO] [NITS] [Q] [FYI] を付け、直す必要があるかどうかを明示する |
 | [testing/given-when-then](testing/given-when-then.md) | adopt | テストは Given(準備)・When(実行)・Then(確認)の 3 つに分けて書く |
